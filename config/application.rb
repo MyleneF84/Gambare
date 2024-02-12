@@ -14,6 +14,7 @@ module Gambare
       generate.test_framework :test_unit, fixture: false
     end
 
+    # config.autoload_paths += [config.root.join('app')]
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 

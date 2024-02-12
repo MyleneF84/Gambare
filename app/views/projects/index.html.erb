@@ -1,0 +1,15 @@
+<h1>All projects</h1>
+
+<div class="content d-flex justify-content-between">
+  <div class="card-content row mb-3">
+    <% @projects.each do |project| %>
+    <div class="card col-3 mt-2">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to project.name, project_path(project) %></h5>
+        <p><%= project.users.map { |u| u.first_name }.uniq.join(", ") %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= link_to "Create new project", new_project_path(@project)  %>

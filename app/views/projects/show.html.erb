@@ -1,0 +1,27 @@
+<h1><%= @project.name %></h1>
+
+<div class="row">
+  <div class="col-6">
+    <ul>
+      <li>Goal: <%= @project.goal_amount %>$</li>
+      <li>Current amount: <%= @project.current_amount %>$</li>
+    </ul>
+
+    <% if @project.current_amount <= @project.goal_amount %>
+      <div class="alert-danger" >
+        Hang in there
+      </div>
+      <% else %>
+      <div class="alert-success" >
+      Project completed, well done!
+      </div>
+    <% end %>
+
+    <%= render "transactions/form", project: @project, transaction: @transaction %>
+  </div>
+
+  <div class="col-6">
+    <h3>Tasks : </h3>
+  </div>
+</div>
+<%= link_to "Back", projects_path  %>

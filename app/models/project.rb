@@ -2,7 +2,7 @@ class Project < ApplicationRecord
   has_many :transactions, dependent: :destroy
   has_many :users, through: :transactions
 
-  validates :name, uniqueness: { scope: "transactions.user_id", message: "Project already exists" }
+  validates :name, :goal_amount, presence: true
 
   scope :achieved, -> {where(achieved: true)}
 end
